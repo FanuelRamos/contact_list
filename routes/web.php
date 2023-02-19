@@ -14,5 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('index');
+})->name(name: 'index');
+
+Route::get('/add', function () {
+    return view('add');
+})->name(name: 'add');
+
+Route::get('/edit', function () {
+    return view('edit');
+})->name(name: 'edit');
+
+Route::get('/profile', function () {
+    return view('contact-profile');
+})->name(name: 'profile');
