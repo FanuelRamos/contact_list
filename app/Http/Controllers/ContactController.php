@@ -36,7 +36,13 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $contact = Contact::create([
+            'name' => $request->input('name'),
+            'contact' => $request->input('phone-number'),
+            'email' => $request->input('email')
+        ]);
+
+        return redirect()->route('contact.show', $contact);
     }
 
     /**
@@ -46,8 +52,8 @@ class ContactController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Contact $contact)
-    {
-        return view('contact-profile');
+    {   
+        return view('contact-profile', compact('contact'));
     }
 
     /**

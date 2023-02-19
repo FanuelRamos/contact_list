@@ -25,38 +25,35 @@
 			</div>
 		</header>
 
-		<section class="contact-info">
+		<form method="POST" action="{{ route('contact.store') }}">
+			@csrf
 
-			<div class="info-line">
-				<i class="fas fa-user icon-gradient"></i>
-				<input type="text" class="type" name="name" placeholder="Nome">
-			</div>
+			<section class="contact-info">
 
-			<div class="info-line">
-				<i class="fas fa-phone icon-gradient"></i>
-				<input type="number" class="type" name="phone-number" placeholder="Número de Telefone">
-			</div>
+				<div class="info-line">
+					<i class="fas fa-user icon-gradient"></i>
+					<input type="text" class="type" name="name" placeholder="Nome">
+				</div>
 
-			
+				<div class="info-line">
+					<i class="fas fa-phone icon-gradient"></i>
+					<input type="number" class="type" name="phone-number" placeholder="Número de Telefone">
+				</div>
 
-			<div  class="info-line">
-				<i class="fas fa-envelope icon-gradient"></i>
-				<input type="email" class="type" name="email" placeholder="Email">
-			</div>
+				
 
-			
+				<div  class="info-line">
+					<i class="fas fa-envelope icon-gradient"></i>
+					<input type="email" class="type" name="email" placeholder="Email">
+				</div>
 
-			<div class="info-line">
-				<i class="fas fa-map-marker-alt icon-gradient location"></i>
-				<input type="text" class="type" name="address" placeholder="Endereço">
-			</div>
-
-		<section class="button-container">
-			<div class="update-contact">
-				<i  class="fas fa-check-circle icon-gradient"></i>
-				<button class="button">Adicionar</button>
-			</div>
-		</section>
+			<section class="button-container">
+				<div class="update-contact">
+					<i  class="fas fa-check-circle icon-gradient"></i>
+					<button type="submit" class="button">Adicionar</button>
+				</div>
+			</section>
+		</form>
 
 	</div>
 
