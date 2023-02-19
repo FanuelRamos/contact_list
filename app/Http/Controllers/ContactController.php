@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ContactController extends Controller
 {
@@ -36,6 +37,12 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|max:255',
+            'phone-number' => 'required|min:9|max:9',
+            'email' => 'required|email|max:255'
+        ]);
+
         $contact = Contact::create([
             'name' => $request->input('name'),
             'contact' => $request->input('phone-number'),
@@ -75,7 +82,13 @@ class ContactController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Contact $contact)
-    {
+    {   
+        $request->validate([
+            'name' => 'required|max:255',
+            'phone-number' => 'required|min:9|max:9',
+            'email' => 'required|email|max:255'
+        ]);
+
         $contact->update([
             'name' => $request->input('name'),
             'contact' => $request->input('phone-number'),

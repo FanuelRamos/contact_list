@@ -21,7 +21,17 @@
 			</a>
 
 			<div class="hero-info">
-				<h1 class="name">Editar Contacto</h1>
+				@if (count($errors) > 0)
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+				@else
+					<h1 class="name">Editar Contacto</h1>
+				@endif
 			</div>
 		</header>
 		<form method="POST" action="{{ route('contact.update', $contact) }}">
@@ -32,19 +42,19 @@
 
 				<div class="info-line">
 					<i class="fas fa-user icon-gradient"></i>
-					<input type="text" class="type" name="name" value="{{ $contact->name }}">
+					<input type="text" class="type" name="name" value="{{ $contact->name }}" required>
 				</div>
 
 				<div class="info-line">
 					<i class="fas fa-phone icon-gradient"></i>
-					<input type="number" class="type" name="phone-number" value="{{ $contact->contact }}">
+					<input type="number" class="type" name="phone-number" value="{{ $contact->contact }}" required>
 				</div>
 
 				
 
 				<div  class="info-line">
 					<i class="fas fa-envelope icon-gradient"></i>
-					<input type="email" class="type" name="email" value="{{ $contact->email }}">
+					<input type="email" class="type" name="email" value="{{ $contact->email }}" required>
 				</div>
 
 			<section class="button-container">
