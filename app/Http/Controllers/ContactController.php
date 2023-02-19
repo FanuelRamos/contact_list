@@ -39,8 +39,8 @@ class ContactController extends Controller
     {
         $request->validate([
             'name' => 'required|max:255',
-            'phone-number' => 'required|min:9|max:9',
-            'email' => 'required|email|max:255'
+            'phone-number' => 'required|min:9|max:9|unique:contacts,contact',
+            'email' => 'required|email|max:255|unique:contacts,email'
         ]);
 
         $contact = Contact::create([
@@ -85,8 +85,8 @@ class ContactController extends Controller
     {   
         $request->validate([
             'name' => 'required|max:255',
-            'phone-number' => 'required|min:9|max:9',
-            'email' => 'required|email|max:255'
+            'phone-number' => 'required|min:9|max:9|unique:contacts,contact,'.$contact->id,
+            'email' => 'required|email|max:255|unique:contacts,email,'.$contact->id,
         ]);
 
         $contact->update([
