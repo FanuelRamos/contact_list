@@ -13,18 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name(name: 'index');
+Route::get('/', [App\Http\Controllers\ContactController::class, 'index'])->name(name:'index');
 
-Route::get('/add', function () {
-    return view('add');
-})->name(name: 'add');
+Route::get('/add', [App\Http\Controllers\ContactController::class, 'create'])->name(name:'add');
 
-Route::get('/edit', function () {
-    return view('edit');
-})->name(name: 'edit');
+Route::get('/edit', [App\Http\Controllers\ContactController::class, 'edit'])->name(name:'edit');
 
-Route::get('/profile', function () {
-    return view('contact-profile');
-})->name(name: 'profile');
+Route::get('/profile', [App\Http\Controllers\ContactController::class, 'show'])->name(name:'profile');
+
+Route::resource('contact', App\Http\Controllers\ContactController::class);
