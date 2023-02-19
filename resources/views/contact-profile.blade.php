@@ -19,7 +19,7 @@
 				<i  class="fas fa-chevron-circle-left back-btn"></i>
 			</a>
 			<div class="hero-info">
-				<h1 class="name">Fanuel Ramos</h1>
+				<h1 class="name">{{ $contact->name }}</h1>
 			</div>
 		</header>
 
@@ -27,21 +27,14 @@
 
 			<div class="info-line">
 				<i class="fas fa-phone icon-gradient"></i>
-				<p class="phone-number">888.888.888</p>
+				<p class="phone-number">{{ $contact->contact }}</p>
 			</div>
 
 			<div class="info-line">
 				<i class="fas fa-envelope icon-gradient"></i>
-				<p class="email">fanuelramos@example.com</p>
+				<p class="email">{{ $contact->email }}</p>
 			</div>
-
 			
-
-			<div class="info-line">
-				<i id="location" class="fas fa-map-marker-alt icon-gradient"></i>
-				<p class="address">888 Example St</p>
-			</div>
-		</section>
 	</div>
 
 </body>
