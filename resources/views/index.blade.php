@@ -23,11 +23,11 @@
 		<!--  CONTACT LIST -->
 		<section class="contacts-library">
 			<ul class="contacts-list">
-				
+				@foreach ($contacts as $contact)
 					<div class="contact-section">
-						<a href="{{ route('profile') }}">
+						<a href="{{ route('contact.show', $contact) }}">
 							<li class="list__item">
-								<p class="contact-name">John Doe</p>
+								<p class="contact-name">{{ $contact->name }}</p>
 							</li>
 						</a>
 						<li class="list__item">
@@ -35,8 +35,8 @@
 							<i class="fas fa-trash"></i>
 						</li>
 					</div>
-
-				<hr>
+					<hr>
+				@endforeach	
 			</ul>
 		</section>
 	</div>
