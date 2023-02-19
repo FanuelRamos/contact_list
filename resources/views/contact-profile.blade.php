@@ -34,7 +34,24 @@
 				<i class="fas fa-envelope icon-gradient"></i>
 				<p class="email">{{ $contact->email }}</p>
 			</div>
+
+			<section class="action-contact">
+				<div class="action-button">
+					<a href="{{ route('contact.edit', $contact) }}"><i class="fas fa-edit icon-gradient"></i></a>
+				</div>
+				&nbsp;
+				&nbsp;
+				&nbsp;
+				<div class="action-button">
+					<form method="POST" action="{{ route('contact.destroy', $contact) }}">
+						{{ csrf_field() }}
+						@method('DELETE')
+						<button type="submit" style="background-color: red; cursor: hand;" onclick="return confirm('Deseja eliminar o contacto?')" class="button"><i class="fas fa-trash"></i></button>
+					</form>
+				</div>
+			</section>
 			
+
 	</div>
 
 </body>

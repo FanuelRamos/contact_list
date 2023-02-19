@@ -31,8 +31,12 @@
 							</li>
 						</a>
 						<li class="list__item">
-							<i class="fas fa-edit"></i>
-							<i class="fas fa-trash"></i>
+							<a href="{{ route('contact.edit', $contact) }}"><i class="fas fa-edit"></i></a>
+							<form method="POST" action="{{ route('contact.destroy', $contact) }}">
+								{{ csrf_field() }}
+								@method('DELETE')
+								<button type="submit" style="background-color: red; cursor: hand;" onclick="return confirm('Deseja eliminar o contacto?')" class="button"><i class="fas fa-trash"></i></button>
+							</form>
 						</li>
 					</div>
 					<hr>

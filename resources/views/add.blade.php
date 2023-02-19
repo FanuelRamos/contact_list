@@ -26,7 +26,7 @@
 		</header>
 
 		<form method="POST" action="{{ route('contact.store') }}">
-			@csrf
+			{{ csrf_field() }}
 
 			<section class="contact-info">
 

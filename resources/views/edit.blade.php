@@ -21,42 +21,39 @@
 			</a>
 
 			<div class="hero-info">
-				<h1 class="name">Fanuel Ramos</h1>
+				<h1 class="name">Editar Contacto</h1>
 			</div>
 		</header>
+		<form method="POST" action="{{ route('contact.update', $contact) }}">
+			{{ csrf_field() }}
+			@method('PUT')
 
-		<section class="contact-info">
+			<section class="contact-info">
 
-			<div class="info-line">
-				<i class="fas fa-user icon-gradient"></i>
-				<input type="text" class="type" name="fullname" placeholder="Nome">
-			</div>
+				<div class="info-line">
+					<i class="fas fa-user icon-gradient"></i>
+					<input type="text" class="type" name="name" value="{{ $contact->name }}">
+				</div>
 
-			<div class="info-line">
-				<i class="fas fa-phone icon-gradient"></i>
-				<input type="text" class="type" name="phone-number" placeholder="Número de Telefone">
-			</div>
+				<div class="info-line">
+					<i class="fas fa-phone icon-gradient"></i>
+					<input type="number" class="type" name="phone-number" value="{{ $contact->contact }}">
+				</div>
 
-			
+				
 
-			<div  class="info-line">
-				<i class="fas fa-envelope icon-gradient"></i>
-				<input type="text" class="type" name="e-mail" placeholder="Email">
-			</div>
+				<div  class="info-line">
+					<i class="fas fa-envelope icon-gradient"></i>
+					<input type="email" class="type" name="email" value="{{ $contact->email }}">
+				</div>
 
-			
-
-			<div class="info-line">
-				<i class="fas fa-map-marker-alt icon-gradient location"></i>
-				<input type="text" class="type" name="address" placeholder="Endereço">
-			</div>
-
-		<section class="button-container">
-			<div class="update-contact">
-				<i  class="fas fa-check-circle icon-gradient"></i>
-				<button class="button">Atualizar</button>
-			</div>
-		</section>
+			<section class="button-container">
+				<div class="update-contact">
+					<i  class="fas fa-check-circle icon-gradient"></i>
+					<button type="submit" class="button">Atualizar</button>
+				</div>
+			</section>
+		</form>
 
 	</div>
 

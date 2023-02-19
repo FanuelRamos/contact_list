@@ -80,9 +80,12 @@ p{
 
 
 
-.edit-contact{
+.action-contact{
 	background-color: #313438;
 	padding: 2.5em 3.5em;
-	text-align: center;
+	align-items: center;
 	color: #fff;
+	display: inline-flex;
+	justify-content: space-around;
+	margin: 0 auto;
 }
